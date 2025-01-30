@@ -58,7 +58,7 @@ document.addEventListener("DOMContentLoaded", function () {
        // document.body.style.backgroundRepeat = "no-repeat";
 
         messageContainer.style.display = 'block';
-        messageContainer.innerHTML = 'Respuesta correcta <br> Se ha ganado cuchumil chocolatiños <br>';
+        messageContainer.innerHTML = 'Se ha ganado cuchumil chocolatiños';
 
         const img1 = document.createElement('img');
         img1.src = 'img/si3.png';
