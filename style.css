@@ -42,7 +42,6 @@ body {
     padding: 0;
 }
 
-
 button {
     font-size: 1.5rem;
     padding: 10px 20px;
@@ -77,12 +76,9 @@ button:hover {
     background-image: url(img/fondo.jpg);
     background-size: cover;
     background-position: center;
-    
-    /* Capa de color para suavizar el fondo */
-    background-color: rgba(255, 255, 255, 0.2); 
-    backdrop-filter: blur(5px); /* Desenfoque ligero */
-
-    color: rgb(160, 72, 189); /* Color de texto más claro */
+    background-color: rgba(255, 255, 255, 0.2);
+    backdrop-filter: blur(5px);
+    color: rgb(160, 72, 189);
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -90,28 +86,72 @@ button:hover {
     text-align: center;
     font-size: 2rem;
     font-weight: bold;
-    
-    /* Efecto de sombra para mejorar la visibilidad del texto */
     text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.2);
-    
     z-index: 1000;
 }
 
-
 #messageContainer {
-    color: #FF0000; /* Color rojo */
-    font-family: 'YourDesiredFont', sans-serif; /* Reemplaza 'YourDesiredFont' con la fuente que desees */
-    text-shadow: 2px 2px 4px #000; /* Borde simulado */
-    animation: pulse 0.5s infinite alternate; /* Animación de palpitación más rápida */
-    width: 100vw; /* El ancho ocupa toda la pantalla */
-    height: 100vh; /* La altura ocupa toda la pantalla */
-    justify-content: center; /* Alineación horizontal en el centro */
-    align-items: center; /* Alineación vertical en el centro */
+    color: #FF0000;
+    font-family: 'YourDesiredFont', sans-serif;
+    text-shadow: 2px 2px 4px #000;
+    animation: pulse 0.5s infinite alternate;
+    width: 100vw;
+    height: 100vh;
+    justify-content: center;
     font-size: 4rem;
     padding-top: 10%;
 }
 
-
 #messageContainer.show {
     opacity: 1;
 }
+
+/* Media Queries para responsividad */
+@media (max-width: 768px) {
+    #introScreen {
+        font-size: 1.5rem;
+    }
+
+    #startBtn {
+        font-size: 1.2rem;
+        padding: 8px 16px;
+    }
+
+    button {
+        font-size: 1.2rem;
+        padding: 8px 16px;
+    }
+
+    #mainContent {
+        font-size: 1.5rem;
+    }
+
+    #messageContainer {
+        font-size: 3rem;
+    }
+}
+
+@media (max-width: 480px) {
+    #introScreen {
+        font-size: 1rem;
+    }
+
+    #startBtn {
+        font-size: 1rem;
+        padding: 6px 12px;
+    }
+
+    button {
+        font-size: 1rem;
+        padding: 6px 12px;
+    }
+
+    #mainContent {
+        font-size: 1.2rem;
+    }
+
+    #messageContainer {
+        font-size: 2rem;
+    }
+}
+
