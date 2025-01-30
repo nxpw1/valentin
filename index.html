@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pregunta Importante</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- Pantalla de introducción -->
+    <div id="introScreen">
+        <h1>¿Preparada para una súper pregunta preguntona?</h1>
+        <button id="startBtn" aria-label="Comenzar">A darle</button>
+        <img src="img/pregunta.png" alt="Descripción de la imagen" id="introImage">
+    </div>
+
+    <!-- Contenido principal (oculto inicialmente) -->
+    <div id="mainContent" class="hidden">
+
+        <h1 id="question">¿Quieres ser mi SAN VALENTIN?</h1>
+        <button id="siBtn" aria-label="Sí">Sí</button>
+        <button id="noBtn" aria-label="No">No</button>
+        <img src="img/propuesta.png" alt="Descripción de la imagen" id="propuestaImage">
+        
+
+        <div id="messageContainer" class="hidden"></div>
+    </div>
+
+    <script src="back.js"></script>
+
+</body>
+</html>
