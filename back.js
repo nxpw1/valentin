@@ -58,7 +58,7 @@ document.addEventListener("DOMContentLoaded", function () {
        // document.body.style.backgroundRepeat = "no-repeat";
 
         messageContainer.style.display = 'block';
-        messageContainer.innerHTML = 'Se ha ganado cuchumil chocolatiños';
+        messageContainer.innerHTML = 'Respuesta correcta <br> Se ha ganado cuchumil chocolatiños <br>';
 
         const img1 = document.createElement('img');
         img1.src = 'img/si3.png';
@@ -97,14 +97,36 @@ document.addEventListener("DOMContentLoaded", function () {
  
     function mostrarImagenesProgresivamente() {
         messageContainer.innerHTML = ''; // Limpiar el contenedor
-        
-        // Crear un contenedor para las imágenes con flexbox
+    
+        // Crear un contenedor flexible para las imágenes
         const imgContainer = document.createElement('div');
         imgContainer.style.display = 'flex';
         imgContainer.style.flexWrap = 'wrap';
         imgContainer.style.justifyContent = 'center';
+        imgContainer.style.alignItems = 'center';
         imgContainer.style.gap = '8px'; // Espacio entre imágenes
+        imgContainer.style.width = '100vw';
+        imgContainer.style.height = '100vh';
+        imgContainer.style.position = 'relative'; // Para superponer el texto
         messageContainer.appendChild(imgContainer);
+    
+        // Crear el mensaje "TE AMO ❤️" y ocultarlo al inicio
+        const mensaje = document.createElement('h1');
+        mensaje.textContent = 'TE AMO ❤️';
+        mensaje.style.position = 'absolute';
+        mensaje.style.top = '50%';
+        mensaje.style.left = '50%';
+        mensaje.style.transform = 'translate(-50%, -50%)';
+        mensaje.style.fontSize = '3rem';
+        mensaje.style.fontWeight = 'bold';
+        mensaje.style.color = 'white';
+        mensaje.style.textShadow = '2px 2px 10px rgba(0, 0, 0, 0.5)';
+        mensaje.style.background = 'rgba(0, 0, 0, 0.4)'; // Fondo semitransparente para mejor visibilidad
+        mensaje.style.padding = '10px 20px';
+        mensaje.style.borderRadius = '10px';
+        mensaje.style.opacity = '0'; // Oculto al inicio
+        mensaje.style.transition = 'opacity 1s ease-out';
+        imgContainer.appendChild(mensaje);
     
         let index = 1;
         function mostrarSiguienteImagen() {
@@ -112,15 +134,19 @@ document.addEventListener("DOMContentLoaded", function () {
                 const img = document.createElement('img');
                 img.src = `img/fondo${index}.jpg`;
                 img.alt = `Fondo ${index}`;
-                img.style.width = '32%'; // Ajustar tamaño de las imágenes
+    
+                // **Mantener proporciones sin deformar**
+                img.style.width = '18vw'; // Tamaño ajustado dinámicamente
+                img.style.height = '18vw';
+                img.style.objectFit = 'cover'; // Evita la deformación
                 img.style.borderRadius = '10px';
                 img.style.boxShadow = '0px 4px 8px rgba(0, 0, 0, 0.2)';
-                
-                // Estilos para la animación de aparición
+    
+                // Animación de aparición suave
                 img.style.opacity = '0';
                 img.style.transform = 'scale(0.8)';
                 img.style.transition = 'opacity 0.5s ease-out, transform 0.5s ease-out';
-                
+    
                 imgContainer.appendChild(img);
     
                 // Hacer que la imagen aparezca suavemente
@@ -130,36 +156,19 @@ document.addEventListener("DOMContentLoaded", function () {
                 }, 50);
     
                 index++;
-                setTimeout(mostrarSiguienteImagen, 350); // Muestra cada imagen con un intervalo de 0.35 segundos
+                setTimeout(mostrarSiguienteImagen, 300); // Muestra cada imagen con un intervalo de 0.3 segundos
             } else {
-                // Mostrar "TE AMO" después de que aparezca la última imagen
+                // Mostrar "TE AMO" después de la última imagen
                 setTimeout(() => {
-                    const mensaje = document.createElement('h1');
-                    mensaje.textContent = 'TE AMO ❤️';
-                    mensaje.style.textAlign = 'center';
-                    mensaje.style.fontSize = '2.5rem';
-                    mensaje.style.fontWeight = 'bold';
-                    mensaje.style.color = 'red';
-                    mensaje.style.marginBottom = '5px';
-    
-                    // Estilos para la animación de aparición
-                    mensaje.style.opacity = '0';
-                    mensaje.style.transform = 'scale(0.8)';
-                    mensaje.style.transition = 'opacity 1s ease-out, transform 1s ease-out';
-    
-                    // Insertar el mensaje antes del contenedor de imágenes
-                    messageContainer.insertBefore(mensaje, imgContainer);
-    
-                    // Hacer que el mensaje aparezca suavemente
-                    setTimeout(() => {
-                        mensaje.style.opacity = '1';
-                        mensaje.style.transform = 'scale(1)';
-                    }, 50);
+                    mensaje.style.opacity = '1'; // Hacerlo visible
                 }, 500);
             }
         }
         mostrarSiguienteImagen();
     }
+    
+    
+    
 
     
 
